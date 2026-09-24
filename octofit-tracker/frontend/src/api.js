@@ -1,8 +1,9 @@
 const codespaceName = (import.meta.env.VITE_CODESPACE_NAME || '').trim()
+const API_ORIGIN = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev`
+  : 'http://localhost:8000'
 
-export const API_BASE_URL = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev/api`
-  : 'http://localhost:8000/api'
+export const API_BASE_URL = `${API_ORIGIN}/api`
 
 export function normalizeCollection(payload, key) {
   if (Array.isArray(payload)) return payload
@@ -13,8 +14,8 @@ export function normalizeCollection(payload, key) {
   return []
 }
 
-export async function fetchCollection(path, key) {
-  const response = await fetch(`${API_BASE_URL}/${path}/`)
+export async function fetchCollection(endpoint, key) {
+  const response = await fetch(`${API_ORIGIN}${endpoint}`)
   if (!response.ok) {
     throw new Error(`Unable to load ${key} (${response.status})`)
   }

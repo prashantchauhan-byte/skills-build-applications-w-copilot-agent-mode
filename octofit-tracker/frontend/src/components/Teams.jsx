@@ -1,7 +1,7 @@
 import { useCollection } from '../hooks/useCollection.js'
 
 function Teams() {
-  const { items: teams, loading, error } = useCollection('teams', 'teams')
+  const { items: teams, loading, error } = useCollection('/api/teams/', 'teams')
 
   return (
     <section className="view-section">

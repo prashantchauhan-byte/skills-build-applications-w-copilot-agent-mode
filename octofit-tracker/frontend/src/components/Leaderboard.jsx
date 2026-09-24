@@ -1,7 +1,7 @@
 import { useCollection } from '../hooks/useCollection.js'
 
 function Leaderboard() {
-  const { items: leaderboard, loading, error } = useCollection('leaderboard', 'leaderboard')
+  const { items: leaderboard, loading, error } = useCollection('/api/leaderboard/', 'leaderboard')
 
   return (
     <section className="view-section">

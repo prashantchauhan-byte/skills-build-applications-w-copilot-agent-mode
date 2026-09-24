@@ -1,7 +1,7 @@
 import { useCollection } from '../hooks/useCollection.js'
 
 function Users() {
-  const { items: users, loading, error } = useCollection('users', 'users')
+  const { items: users, loading, error } = useCollection('/api/users/', 'users')
 
   return (
     <section className="view-section">
