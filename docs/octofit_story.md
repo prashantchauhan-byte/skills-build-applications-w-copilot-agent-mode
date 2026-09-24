@@ -89,8 +89,8 @@ In this workshop, you'll:
 We'll be using a modern web application stack:
 
 - **Frontend**: React.js
-- **Backend**: Python with Django REST API Framework
-- **Database**: MongoDB
+- **Backend**: Node.js with Express and TypeScript
+- **Database**: MongoDB with Mongoose
 - **Development Environment**: GitHub Codespaces
 
 ### Workshop Structure
@@ -106,7 +106,7 @@ We'll be using a modern web application stack:
 3. **Rapid Prototyping with GitHub Copilot agent mode**
    - Creating project structure
    - Generating boilerplate code
-   - Implementing basic models, serializers, urls, and views
+   - Implementing Mongoose models, Express routes, and API handlers
 
 4. **Building Core Features**
    - Activity logging and tracking
@@ -118,5 +118,5 @@ We'll be using a modern web application stack:
    - Setting up React components
    - Implementing responsive UI
    - Connecting to backend APIs
-   - Python Django business logic
-   - MongoDB data layer
+   - Node.js and Express business logic
+   - Mongoose and MongoDB data layer
