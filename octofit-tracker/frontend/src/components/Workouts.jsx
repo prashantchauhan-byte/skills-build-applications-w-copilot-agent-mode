@@ -15,7 +15,7 @@ function Workouts() {
       {loading && <p className="status-message">Loading workouts...</p>}
       {error && <p className="status-message error-message">{error}</p>}
       {!loading && !error && (
-        <div className="workout-grid">
+        workouts.length ? <div className="workout-grid">
           {workouts.map((workout) => (
             <article className="workout-card" key={workout._id || workout.id || workout.name}>
               <div className="workout-card-top"><span className="type-pill">{workout.type}</span><span>{workout.durationMinutes || workout.duration || 0} min</span></div>
@@ -24,7 +24,7 @@ function Workouts() {
               <span className="difficulty">{workout.difficulty}</span>
             </article>
           ))}
-        </div>
+        </div> : <p className="status-message">No workouts are available yet.</p>
       )}
     </section>
   )

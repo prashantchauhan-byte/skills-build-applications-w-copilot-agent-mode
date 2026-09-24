@@ -14,7 +14,7 @@ function Users() {
       </div>
       <DataState loading={loading} error={error} />
       {!loading && !error && (
-        <div className="member-grid">
+        users.length ? <div className="member-grid">
           {users.map((user) => (
             <article className="member-card" key={user._id || user.id || user.email}>
               <div className="avatar">{user.avatar || user.name?.slice(0, 2).toUpperCase()}</div>
@@ -25,7 +25,7 @@ function Users() {
               </div>
             </article>
           ))}
-        </div>
+        </div> : <p className="status-message">No members are available yet.</p>
       )}
     </section>
   )

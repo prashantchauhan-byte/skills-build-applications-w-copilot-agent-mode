@@ -5,6 +5,11 @@ const API_ORIGIN = codespaceName
 
 export const API_BASE_URL = `${API_ORIGIN}/api`
 
+function getApiUrl(endpoint) {
+  const path = endpoint.startsWith('/api/') ? endpoint.slice('/api'.length) : endpoint
+  return `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
+}
+
 export function normalizeCollection(payload, key) {
   if (Array.isArray(payload)) return payload
   if (Array.isArray(payload?.[key])) return payload[key]
@@ -15,7 +20,7 @@ export function normalizeCollection(payload, key) {
 }
 
 export async function fetchCollection(endpoint, key) {
-  const response = await fetch(`${API_ORIGIN}${endpoint}`)
+  const response = await fetch(getApiUrl(endpoint))
   if (!response.ok) {
     throw new Error(`Unable to load ${key} (${response.status})`)
   }

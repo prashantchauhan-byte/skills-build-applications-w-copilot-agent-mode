@@ -7,6 +7,14 @@ import Workouts from './components/Workouts.jsx'
 import './App.css'
 
 function App() {
+  const navigation = [
+    ['/users', 'People'],
+    ['/teams', 'Teams'],
+    ['/activities', 'Activities'],
+    ['/leaderboard', 'Leaderboard'],
+    ['/workouts', 'Workouts'],
+  ]
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -18,11 +26,9 @@ function App() {
           </div>
         </div>
         <nav className="main-nav" aria-label="Primary navigation">
-          <NavLink to="/users">People</NavLink>
-          <NavLink to="/teams">Teams</NavLink>
-          <NavLink to="/activities">Activities</NavLink>
-          <NavLink to="/leaderboard">Leaderboard</NavLink>
-          <NavLink to="/workouts">Workouts</NavLink>
+          {navigation.map(([path, label]) => (
+            <NavLink key={path} to={path}>{label}</NavLink>
+          ))}
         </nav>
       </header>
 

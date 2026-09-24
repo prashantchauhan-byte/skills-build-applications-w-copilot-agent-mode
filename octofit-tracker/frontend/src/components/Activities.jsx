@@ -15,7 +15,7 @@ function Activities() {
       {loading && <p className="status-message">Loading activity...</p>}
       {error && <p className="status-message error-message">{error}</p>}
       {!loading && !error && (
-        <div className="table-shell">
+        activities.length ? <div className="table-shell">
           <table className="tracker-table">
             <thead><tr><th>Who</th><th>Movement</th><th>Duration</th><th>Energy</th><th>Date</th></tr></thead>
             <tbody>
@@ -30,7 +30,7 @@ function Activities() {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> : <p className="status-message">No activity has been logged yet.</p>
       )}
     </section>
   )

@@ -15,7 +15,7 @@ function Leaderboard() {
       {loading && <p className="status-message">Loading rankings...</p>}
       {error && <p className="status-message error-message">{error}</p>}
       {!loading && !error && (
-        <div className="ranking-list">
+        leaderboard.length ? <div className="ranking-list">
           {leaderboard.map((entry, index) => (
             <article className={`ranking-row rank-${entry.rank || index + 1}`} key={entry._id || entry.id || index}>
               <span className="rank-number">{entry.rank || index + 1}</span>
@@ -24,7 +24,7 @@ function Leaderboard() {
               <strong className="points">{entry.points || 0}<small> pts</small></strong>
             </article>
           ))}
-        </div>
+        </div> : <p className="status-message">No rankings are available yet.</p>
       )}
     </section>
   )

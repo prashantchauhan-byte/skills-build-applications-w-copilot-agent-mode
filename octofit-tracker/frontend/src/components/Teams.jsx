@@ -15,7 +15,7 @@ function Teams() {
       {loading && <p className="status-message">Loading teams...</p>}
       {error && <p className="status-message error-message">{error}</p>}
       {!loading && !error && (
-        <div className="team-grid">
+        teams.length ? <div className="team-grid">
           {teams.map((team) => (
             <article className="team-card" key={team._id || team.id || team.name}>
               <div className="team-color" style={{ backgroundColor: team.color || '#ef8354' }} />
@@ -30,7 +30,7 @@ function Teams() {
               </div>
             </article>
           ))}
-        </div>
+        </div> : <p className="status-message">No teams have been created yet.</p>
       )}
     </section>
   )
