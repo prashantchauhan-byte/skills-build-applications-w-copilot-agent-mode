@@ -1,7 +1,11 @@
 import { useCollection } from '../hooks/useCollection.js'
 
+const activitiesEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/'
+
 function Activities() {
-  const { items: activities, loading, error } = useCollection('/api/activities/', 'activities')
+  const { items: activities, loading, error } = useCollection(activitiesEndpoint, 'activities')
 
   return (
     <section className="view-section">

@@ -1,7 +1,11 @@
 import { useCollection } from '../hooks/useCollection.js'
 
+const teamsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
+  : 'http://localhost:8000/api/teams/'
+
 function Teams() {
-  const { items: teams, loading, error } = useCollection('/api/teams/', 'teams')
+  const { items: teams, loading, error } = useCollection(teamsEndpoint, 'teams')
 
   return (
     <section className="view-section">

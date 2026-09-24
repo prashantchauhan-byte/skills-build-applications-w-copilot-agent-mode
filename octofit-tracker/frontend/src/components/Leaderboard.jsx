@@ -1,7 +1,11 @@
 import { useCollection } from '../hooks/useCollection.js'
 
+const leaderboardEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+  : 'http://localhost:8000/api/leaderboard/'
+
 function Leaderboard() {
-  const { items: leaderboard, loading, error } = useCollection('/api/leaderboard/', 'leaderboard')
+  const { items: leaderboard, loading, error } = useCollection(leaderboardEndpoint, 'leaderboard')
 
   return (
     <section className="view-section">
